@@ -12,7 +12,6 @@ class User extends React.Component {
       axios
         .get(`https://api.github.com/users/${this.props.input}`)
         .then((res) => {
-          console.log(res.data)
           this.setState({ ...this.state, userData: res.data })
         })
         .catch((err) => console.error(err))
@@ -24,7 +23,6 @@ class User extends React.Component {
       axios
         .get(`https://api.github.com/users/${this.props.input}`)
         .then((res) => {
-          console.log(res)
           this.setState({ ...this.state, userData: res.data })
           this.setState({ ...this.state, error: '' })
           this.props.setError('')
@@ -47,7 +45,7 @@ class User extends React.Component {
         <p>Total Repos: {this.state.userData.public_repos}</p>
         <p>Total Followers: {this.state.userData.followers}</p>
 
-        <FollowerList username={this.state.userData.login} />
+        <FollowerList login={this.state.userData.login} />
       </section>
     )
   }
