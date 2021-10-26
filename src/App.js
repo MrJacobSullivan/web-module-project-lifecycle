@@ -4,9 +4,11 @@ import User from './components/User'
 import './App.css'
 
 class App extends React.Component {
+  defaultSearch = 'mrjacobsullivan'
+
   state = {
     input: '',
-    search: 'mrjacobsullivan',
+    search: this.defaultSearch,
     userData: {},
     followers: [],
     error: '',
@@ -25,7 +27,7 @@ class App extends React.Component {
   }
 
   setFollowers = (followers) => {
-    this.setState({ ...this.state, followers: [this.state.followers, ...followers] })
+    this.setState({ ...this.state, followers: followers })
   }
 
   setError = (error) => {
@@ -37,10 +39,11 @@ class App extends React.Component {
       .get(`https://api.github.com/users/${login}`)
       .then((res) => {
         this.setUserData(res.data)
+        this.setError('')
       })
       .catch((err) => {
-        this.setError('Invalid Username')
         console.error(err)
+        this.setError('Invalid Username')
       })
   }
 
@@ -62,7 +65,12 @@ class App extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.setSearch(this.state.input)
+    if (this.state.input) this.setSearch(this.state.input)
+    else this.setSearch(this.defaultSearch)
+  }
+
+  handleFollowerClick = (userData) => {
+    this.setSearch(userData.login)
   }
 
   componentDidMount() {
@@ -72,6 +80,10 @@ class App extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.userData !== prevState.userData) {
       this.getFollowers(this.state.userData.login)
+    }
+
+    if (this.state.search !== prevState.search) {
+      this.getUserData(this.state.search)
     }
   }
 
@@ -83,7 +95,7 @@ class App extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
-            placeholder='Username'
+            placeholder='GitHub Handle'
             value={this.state.input}
             onChange={this.handleChange}
           />
@@ -91,7 +103,11 @@ class App extends React.Component {
           <p>{this.state.error}</p>
         </form>
 
-        <User userData={this.state.userData} followers={this.state.followers} />
+        <User
+          userData={this.state.userData}
+          followers={this.state.followers}
+          click={this.handleFollowerClick}
+        />
       </main>
     )
   }

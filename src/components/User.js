@@ -11,7 +11,7 @@ class User extends React.Component {
         <p>Total Repos: {this.props.userData.public_repos}</p>
         <p>Total Followers: {this.props.userData.followers}</p>
 
-        <FollowerList followers={this.props.followers} />
+        <FollowerList followers={this.props.followers} click={this.props.click} />
       </section>
     )
   }

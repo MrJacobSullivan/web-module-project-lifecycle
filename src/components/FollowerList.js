@@ -8,8 +8,8 @@ class FollowerList extends React.Component {
     return (
       <section>
         <h2>Followers:</h2>
-        {this.props.followers.map((follower, index) => (
-          <Follower key={follower.id ? follower.id : index} user={follower} />
+        {this.props.followers.map((follower) => (
+          <Follower key={follower.id} user={follower} click={this.props.click} />
         ))}
       </section>
     )
