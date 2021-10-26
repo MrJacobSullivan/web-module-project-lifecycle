@@ -50,21 +50,21 @@ In this project you will build an application that allows for github user and fo
 
 > _Now that we have all the DOM necessary to run our application, let's proceed to building in our state_
 
-- [ ] In App.js, add in state. Include a slice for state for:
+- [x] In App.js, add in state. Include a slice for state for:
   - A string defining the user we are currently searching for
   - An object containing all user information
   - The array of all followers
-- [ ] Using our two github endpoints as a base, add your github user name, as well as test data for the user object and followers array to insure it is connected correctly.
-- [ ] Connect make sure that the test data within state correct displays within your User, FollowerList and Follower components.
+- [x] Using our two github endpoints as a base, add your github user name, as well as test data for the user object and followers array to insure it is connected correctly.
+- [x] Connect make sure that the test data within state correct displays within your User, FollowerList and Follower components.
 
 #### Load in the user and follower on mount
 
 > _We can now do our api calls to get our initial data_
 
-- [ ] Make our user object and follower list state empty by default.
-- [ ] Keep our searched user state your github username by default.
-- [ ] Use componentDidMount to load initial user data for your github name into state.
-- [ ] Use componentDidUpdate to load follower information **_only when the user slice of state changes value. Make be careful to avoid infinite loops while building this portion._**
+- [x] Make our user object and follower list state empty by default.
+- [x] Keep our searched user state your github username by default.
+- [x] Use componentDidMount to load initial user data for your github name into state.
+- [x] Use componentDidUpdate to load follower information **_only when the user slice of state changes value. Make be careful to avoid infinite loops while building this portion._**
 
 #### Build search capabilities within your APP
 
