@@ -1,21 +1,14 @@
 import React from 'react'
-import axios from 'axios'
 import User from './components/User'
 import './App.css'
 
 class App extends React.Component {
   state = {
-    data: {},
-    input: 'mrjacobsullivan',
+    input: '',
   }
 
-  componentDidMount() {
-    axios
-      .get(`https://api.github.com/users/${this.state.input}`)
-      .then((res) => {
-        this.setState({ ...this.state, data: res.data })
-      })
-      .catch((err) => console.error(err))
+  handleChange = (e) => {
+    this.setState({ ...this.state, input: e.target.value })
   }
 
   render() {
@@ -24,11 +17,11 @@ class App extends React.Component {
         <h1>Github Info</h1>
 
         <form>
-          <input type='text' value={this.state.input} />
+          <input type='text' value={this.state.input} onChange={this.handleChange} />
           <button>Search</button>
         </form>
 
-        <User />
+        <User input={this.state.input} />
       </main>
     )
   }

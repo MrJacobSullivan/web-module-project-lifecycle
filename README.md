@@ -39,12 +39,12 @@ In this project you will build an application that allows for github user and fo
 > _Creating the DOM for your application base on your template and data_
 
 - [x] Take a look at the [included mockup](./card_mockup.png).
-- [ ] Use your browser to take a look at the data returned when using the following endpoints: https://api.github.com/users/<Your github name> and https://api.github.com/users/<Your github name>/followers
-- [ ] Using these three pieces of information, build the DOM necessary to display all application information.
-- [ ] Make use of the User.js (for holding all user information), FollowerList.js (for map through a followers list) and Follower.js (for displaying an individual follower) components to efficiently distribute your code. **_All components should be class based for this assignment._**
-- [ ] Feel free to leave the search form within App.js.
-- [ ] Lightly style as needed.
-- [ ] Commit all changes before proceeding.
+- [x] Use your browser to take a look at the data returned when using the following endpoints: https://api.github.com/users/<Your github name> and https://api.github.com/users/<Your github name>/followers
+- [x] Using these three pieces of information, build the DOM necessary to display all application information.
+- [x] Make use of the User.js (for holding all user information), FollowerList.js (for map through a followers list) and Follower.js (for displaying an individual follower) components to efficiently distribute your code. **_All components should be class based for this assignment._**
+- [x] Feel free to leave the search form within App.js.
+- [x] Lightly style as needed.
+- [x] Commit all changes before proceeding.
 
 #### Add in your state
 
