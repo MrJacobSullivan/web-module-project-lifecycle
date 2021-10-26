@@ -1,8 +1,15 @@
 import React from 'react'
+import Follower from './Follower'
 
 class FollowerList extends React.Component {
   render() {
-    return null
+    return (
+      <section>
+        {this.props.followers.map((follower) => (
+          <Follower />
+        ))}
+      </section>
+    )
   }
 }
 
