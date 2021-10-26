@@ -11,7 +11,7 @@ class User extends React.Component {
         <p>Total Repos: 0</p>
         <p>Total Followers: 0</p>
 
-        <FollowerList />
+        <FollowerList followers={[]} />
       </section>
     )
   }
