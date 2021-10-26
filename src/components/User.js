@@ -19,6 +19,23 @@ class User extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.input !== prevProps.input) {
+      axios
+        .get(`https://api.github.com/users/${this.props.input}`)
+        .then((res) => {
+          console.log(res)
+          this.setState({ ...this.state, userData: res.data })
+          this.setState({ ...this.state, error: '' })
+          this.props.setError('')
+        })
+        .catch((err) => {
+          this.props.setError('Invalid Username')
+          console.error(err)
+        })
+    }
+  }
+
   render() {
     if (!this.state.userData) return <h2>Loading...</h2>
 
